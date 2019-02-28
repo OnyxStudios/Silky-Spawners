@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "nerdhub.silkyspawners.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinBlock",
+    "MixinMobSpawnerBlock"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "silkyspawners",
+  "name": "Silky Spawners",
+  "description": "Allows Breaking of Spawners w/ Silk Touch Enchantment",
+  "version": "${version}",
+  "side": "universal",
+  "mixins": {
+    "common": "mixins.silkyspawners.common.json"
+  }
+}
