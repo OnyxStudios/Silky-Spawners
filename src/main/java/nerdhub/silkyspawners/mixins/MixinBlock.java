@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(Block.class)
+@Mixin(value = Block.class, priority = 5000)
 public class MixinBlock {
 
     @Inject(method = "onBreak", at = @At("HEAD"))
