@@ -8,7 +8,7 @@ sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
 
 group = "com.github.NerdHubMC"
 archivesBaseName = "Silky-Spawners"
-version = project.release_version
+version = System.getenv("TRAVIS_TAG") ?: project.release_version
 
 apply from: "https://raw.githubusercontent.com/NerdHubMC/Gradle-Scripts/master/scripts/fabric/basic_project.gradle"
 
