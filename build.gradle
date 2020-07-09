@@ -1,25 +1,43 @@
 plugins {
-	id "fabric-loom" version "0.2.0-SNAPSHOT"
-    id "com.matthewprenger.cursegradle" version "1.2.0"
+	id "fabric-loom" version "0.4-SNAPSHOT"
     id "maven-publish"
 }
 
 sourceCompatibility = targetCompatibility = JavaVersion.VERSION_1_8
 
-group = "com.github.NerdHubMC"
-archivesBaseName = "Silky-Spawners"
-version = System.getenv("TRAVIS_TAG") ?: project.release_version
+archivesBaseName = project.archive_name
+version = project.mod_version
+group = project.maven_group
 
-apply from: "https://raw.githubusercontent.com/NerdHubMC/Gradle-Scripts/master/scripts/fabric/basic_project.gradle"
+def ENV = System.getenv()
+def buildNumber = "+" + (ENV.BUILD_NUMBER ? ("build." + ENV.BUILD_NUMBER) : "custom")
+def buildMeta = (!ENV.TAG || ENV.TAG.endsWith("-beta") || ENV.TAG.endsWith("-alpha")) ? buildNumber : ""
+def modVersion = (ENV.TAG ?: version)
+version = "${modVersion}${buildMeta}-1.16"
 
 minecraft {
-    
+
 }
 
+repositories {
+    jcenter()
+}
+
+def apiModules = [
+        "fabric-api-base",
+        "fabric-loot-tables-v1",
+        "fabric-resource-loader-v0",
+        "fabric-tool-attribute-api-v1"
+]
+
 dependencies {
-    minecraft "com.mojang:minecraft:${minecraft_version}"
-    mappings "net.fabricmc:yarn:${yarn_mappings}"
-    modCompile "net.fabricmc:fabric-loader:${loader_version}"
+    compileOnly "com.google.code.findbugs:jsr305:3.0.2"
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    apiModules.each { module -> modApi include(fabricApi.module(module, project.fabric_version)) }
+
+    modRuntime "io.github.prospector:modmenu:${project.mod_menu_version}"
 }
 
 processResources {
@@ -37,5 +55,33 @@ processResources {
     // copy everything else, that"s not the fabric.mod.json
     from(sourceSets.main.resources.srcDirs) {
         exclude "fabric.mod.json"
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = "sources"
+    from sourceSets.main.allSource
+}
+
+jar {
+    from "LICENSE.md"
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact(remapJar)
+            artifact(sourcesJar) {
+                builtBy remapSourcesJar
+            }
+        }
+    }
+
+    repositories {
+
     }
 }

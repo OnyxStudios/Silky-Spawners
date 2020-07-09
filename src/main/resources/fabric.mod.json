@@ -1,10 +1,41 @@
 {
-  "id": "silkyspawners",
+  "schemaVersion": 1,
+  "id": "silky_spawners",
   "name": "Silky Spawners",
-  "description": "Allows Breaking of Spawners w/ Silk Touch Enchantment",
   "version": "${version}",
-  "side": "universal",
-  "mixins": {
-    "common": "mixins.silkyspawners.common.json"
-  }
+  "description": "Allows Breaking of Spawners w/ Silk Touch Enchantment",
+  "license": "MIT",
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/silky-spawners",
+    "issues": "https://github.com/OnyxStudios/Silky-Spawners/issues"
+  },
+  "authors": [
+    {
+      "name": "Traverse Joe",
+      "contact": {
+        "homepage": "https://twitter.com/traverse_joe"
+      }
+    },
+    {
+      "name": "UpcraftLP",
+      "contact": {
+        "homepage": "https://twitter.com/UpcraftLP"
+      }
+    }
+  ],
+  "depends": {
+    "minecraft": ">=1.16-",
+    "fabric-loot-tables-v1": "*",
+    "fabric-resource-loader-v0": "*",
+    "fabric-tool-attribute-api-v1": "*"
+  },
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "io.github.onyxstudios.silkyspawners.SilkySpawners"
+    ]
+  },
+  "mixins": [
+    "mixins.silky_spawners.json"
+  ]
 }
