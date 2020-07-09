@@ -1,12 +1,11 @@
-# Silky Spawners [![Project](http://cf.way2muchnoise.eu/full_316119_downloads.svg)](https://minecraft.curseforge.com/projects/316119)
+# Silky Spawners
+[![Build Status](https://img.shields.io/github/workflow/status/OnyxStudios/Silky-Spawners/Build%20Status?label=Build%20Status&logo=GitHub&style=flat-square)](https://github.com/OnyxStudios/Silky-Spawners/actions?query=workflow%3A%22Build+Status%22 "GitHub Actions")
+[![Latest Release](https://img.shields.io/github/v/release/OnyxStudios/Silky-Spawners?include_prereleases&label=Latest&style=flat-square)](https://github.com/OnyxStudios/Silky-Spawners/releases/latest "GitHub Releases")
+
+harvest monster spawners with silk touch
+###### This mod can be installed serverside-only.
+
 
 ---
-Download latest (1.14):
-[![Download](https://curse.nikky.moe/api/img/316119?logo&version=1.14-Snapshot)](https://curse.nikky.moe/api/url/316119?version=1.14-Snapshot)
 
-All Downloads:
-[![Files](https://curse.nikky.moe/api/img/316119/files?logo)](https://minecraft.curseforge.com/projects/316119/files)
-
----
-
-This mod can be installed serverside-only.
+Curseforge: [Traverse_Joe/Silky-Spawners](https://www.curseforge.com/minecraft/mc-mods/silky-spawners "Curseforge")
