@@ -1,5 +1,6 @@
 package io.github.onyxstudios.silkyspawners.mixins;
 
+import io.github.onyxstudios.silkyspawners.SilkySpawners;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SpawnerBlock;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -17,7 +18,7 @@ public abstract class SpawnerBlockMixin {
 
     @Inject(method = "onStacksDropped", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/BlockWithEntity;onStacksDropped(Lnet/minecraft/block/BlockState;Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/item/ItemStack;)V", shift = At.Shift.AFTER), cancellable = true)
     private void silkyspawners_onStacksDropped(BlockState state, World world, BlockPos pos, ItemStack stack, CallbackInfo ci) {
-        if(EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) > 0) {
+        if(stack.getItem().isIn(SilkySpawners.ALLOWED_TOOLS) && EnchantmentHelper.getLevel(Enchantments.SILK_TOUCH, stack) > 0) {
             ci.cancel();
         }
     }

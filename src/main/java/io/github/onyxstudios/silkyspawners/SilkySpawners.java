@@ -3,14 +3,15 @@ package io.github.onyxstudios.silkyspawners;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.loot.v1.FabricLootSupplier;
 import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
+import net.fabricmc.fabric.api.tag.TagRegistry;
+import net.minecraft.item.Item;
+import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class SilkySpawners implements ModInitializer {
 
     public static final String MODID = "silky_spawners";
-    private static final Logger logger = LogManager.getLogger(MODID);
+    public static final Tag<Item> ALLOWED_TOOLS = TagRegistry.item(new Identifier(MODID, "allowed_tools"));
 
     @Override
     public void onInitialize() {

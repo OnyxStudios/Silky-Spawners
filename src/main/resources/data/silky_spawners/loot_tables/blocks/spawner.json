@@ -31,7 +31,7 @@
         {
           "condition": "minecraft:match_tool",
           "predicate": {
-            "tag": "fabric:pickaxes",
+            "tag": "silky_spawners:allowed_tools",
             "enchantments": [
               {
                 "enchantment": "minecraft:silk_touch",
