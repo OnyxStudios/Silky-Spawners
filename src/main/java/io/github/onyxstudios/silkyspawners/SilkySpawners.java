@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.tag.Tag;
 import net.minecraft.util.Identifier;
+import net.fabricmc.fabric.api.event.Event;
 
 public class SilkySpawners implements ModInitializer {
 
