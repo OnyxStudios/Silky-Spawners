@@ -23,6 +23,9 @@
                   "op": "replace"
                 }
               ]
+            },
+            {
+              "function": "silky_spawners:set_spawner_lore"
             }
           ]
         }
