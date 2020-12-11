@@ -30,7 +30,7 @@ jobs:
           draft: false
           prerelease: false
       - name: Setup ENV
-        run: echo ::set-env name=TAG::$(echo ${GITHUB_REF:10})
+        run: echo "TAG=${GITHUB_REF:10}" >> $GITHUB_ENV
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Assemble jar with Gradle
