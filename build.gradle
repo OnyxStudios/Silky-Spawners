@@ -1,5 +1,5 @@
 plugins {
-	id "fabric-loom" version "0.4-SNAPSHOT"
+	id "fabric-loom" version "0.5-SNAPSHOT"
     id "maven-publish"
 }
 
@@ -14,10 +14,6 @@ def buildNumber = "+" + (ENV.BUILD_NUMBER ? ("build." + ENV.BUILD_NUMBER) : "cus
 def buildMeta = (!ENV.TAG || ENV.TAG.endsWith("-beta") || ENV.TAG.endsWith("-alpha")) ? buildNumber : ""
 def modVersion = (ENV.TAG ?: version)
 version = "${modVersion}${buildMeta}-1.16"
-
-minecraft {
-
-}
 
 repositories {
     jcenter()

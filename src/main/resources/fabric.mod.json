@@ -24,7 +24,7 @@
     }
   ],
   "depends": {
-    "minecraft": ">=1.16-",
+    "minecraft": ">=1.16.2-",
     "fabric-loot-tables-v1": "*",
     "fabric-resource-loader-v0": "*",
     "fabric-tool-attribute-api-v1": "*"
